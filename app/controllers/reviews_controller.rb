@@ -1,5 +1,9 @@
-class ReviewsController < APIController
-  before_action :doorkeeper_authorize!, only: [:index]
+class ReviewsController < ApplicationController
+  before_action :authenticate_request!
+
+
+
+
 
   def index
     @reviews = Review.all
@@ -37,10 +41,18 @@ class ReviewsController < APIController
     end
   end
 
+
+
+
   private
 
   def review_params
     params.permit(:author, :content)
   end
+
+
+
+
+
 
 end

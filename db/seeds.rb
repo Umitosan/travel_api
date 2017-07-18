@@ -15,33 +15,24 @@ class Seed
 
   def self.begin
     seed = Seed.new
-    # seed.generate_users
+    seed.generate_users
     seed.generate_dest_rev
   end
 
   def generate_users
-    testAdmin = User.create!(username: 'tadmin',
+    testAdmin = User.create!(
                            email: 'tadmin@gmail.com',
                            password: '1234567',
                            admin: true
     )
 
-    testUser = User.create!(username: 'tuser',
+    testUser = User.create!(
                            email: 'tuser@gmail.com',
                            password: '1234567',
                            admin: false
     )
   end
-  #
-  # def generate_reviews
-  #   20.times do |i|
-  #     review = Review.create!(
-  #       author: Faker::Book.author,
-  #       content: Faker::ChuckNorris.fact
-  #     )
-  #     puts "Review #{i}: Author is #{review.author} and review is '#{review.content}'."
-  #   end
-  # end
+
 
   def generate_dest_rev
     10.times do |i|
