@@ -1,10 +1,10 @@
 class ReviewsController < APIController
+  before_action :doorkeeper_authorize!, only: [:index]
 
   def index
     @reviews = Review.all
     name = params[:name]
     @reviews = Review.search(name)
-    binding.pry
     json_response(@reviews)
   end
 
