@@ -1,1 +1,3 @@
+class ReviewsController < APIController
 
+end
