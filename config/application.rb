@@ -23,6 +23,19 @@ module TravelApi
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::Flash
+    # config.middleware.insert_before "ActionDispatch::RequestId", BatchApi::RackMiddleware
+
+    config.middleware.use BatchApi::RackMiddleware do |batch_config|
+      # you can set various configuration options:
+      batch_config.verb = :put # default :post
+      batch_config.endpoint = "/batchapi" # default /batch
+      batch_config.limit = 100 # how many operations max per request, default 50
+
+      # default middleware stack run for each batch request
+      batch_config.batch_middleware = Proc.new { }
+      # default middleware stack run for each individual operation
+      batch_config.operation_middleware = Proc.new { }
+    end
 
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -35,3 +48,7 @@ module TravelApi
     config.api_only = false
   end
 end
+
+
+
+ # curl -x {ops: [{method: "get" , url: "http://localhost:3000/destinations"}], sequential: true}

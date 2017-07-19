@@ -39,6 +39,7 @@ gem 'rails_admin', '~> 1.2'
 gem 'rest-client'
 gem 'jwt'
 gem 'kaminari'
+gem 'batch_api', '~> 0.3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
