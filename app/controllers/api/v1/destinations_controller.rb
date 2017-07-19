@@ -4,7 +4,7 @@ module Api::V1
       before_action :authenticate_request!
 
       def index
-        @destinations = Destination.all.as_json(include:[:reviews], root: true)
+        @destinations = Destination.page(params[:page]).as_json(include:[:reviews], root: true)
         name = params[:name]
         # @destinations = Destination.search(name)
         json_response(@destinations)

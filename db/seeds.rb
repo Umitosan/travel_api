@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
+# User.destroy_all
 Destination.destroy_all
 Review.destroy_all
 
@@ -35,12 +35,12 @@ class Seed
 
 
   def generate_dest_rev
-    10.times do |i|
+    50.times do |i|
       dest = Destination.create!(city: Faker::Zelda.location,
                                  country: Faker::StarWars.planet
 
       )
-      3.times do |j|
+      1.times do |j|
         dest.reviews.create!(author: Faker::Book.author,
                              content: Faker::ChuckNorris.fact
         )

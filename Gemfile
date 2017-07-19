@@ -38,6 +38,7 @@ gem 'devise'
 gem 'rails_admin', '~> 1.2'
 gem 'rest-client'
 gem 'jwt'
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
