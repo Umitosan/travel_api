@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
   get '/home' => 'pages#home'
 
-
-  resources :destinations
-  resources :reviews
+  namespace :api do
+    namespace :v1 do
+      resources :destinations do
+        resources :reviews
+      end
+    end
+  end
 
 end
