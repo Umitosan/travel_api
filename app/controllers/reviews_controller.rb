@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_request!
 
-
-
-
-
   def index
     @reviews = Review.all
     name = params[:name]
@@ -41,18 +37,10 @@ class ReviewsController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def review_params
     params.permit(:author, :content)
   end
-
-
-
-
-
 
 end
