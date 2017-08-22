@@ -17,17 +17,20 @@ $ curl -X POST -d email="a@a.com" -d password="changeme" http://localhost:3000/a
 ```bash
 $ curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.zwU8lWDbS2S6htTsHeYtpAbZBbJYWkFopzj6ugyuvGU"  -X GET http://localhost:3000/api/v1/destinations
 ```
-
+```
 curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.zwU8lWDbS2S6htTsHeYtpAbZBbJYWkFopzj6ugyuvGU" \
     -F 'batch=[{"method":"GET", "relative_url":"me"},{"method":"GET", "relative_url":"me/friends?limit=50"}]'
-
+```
+```
 '{ops: [{method: "get" , url: "http://localhost:3000/destinations"}], sequential: true}'
+```
 
-
-
+```
 $ curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.zwU8lWDbS2S6htTsHeYtpAbZBbJYWkFopzj6ugyuvGU" -F 'batch=[{"method":"GET", "relative_url": "http://localhost:3000/destinations"}]'
-
+```
+```
 -F 'batch=[{"method":"GET", url: "http://localhost:3000/destinations"}]'
+```
 
 ### serialization
 
